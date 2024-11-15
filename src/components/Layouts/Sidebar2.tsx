@@ -19,6 +19,13 @@ import IconMenuAward from '../../components/Icon/Menu/IconMenuAward';
 import IconMenuDumbbell from '../../components/Icon/Menu/IconMenuDumbbell';
 import IconMenuUsers from '../Icon/Menu/IconMenuUsers';
 import IconMenuForms from '../Icon/Menu/IconMenuForms';
+import IconBook from '../Icon/IconBook';
+import IconLayoutGrid from '../Icon/IconLayoutGrid';
+import IconLayout from '../Icon/IconLayout';
+import IconMenu from '../Icon/IconMenu';
+import IconMail from '../Icon/IconMail';
+import IconMenuApps from '../Icon/Menu/IconMenuApps';
+import IconMenuDatatables from '../Icon/Menu/IconMenuDatatables';
 import IconEye from '../Icon/IconEye';
 
 const Sidebar = () => {
@@ -66,7 +73,7 @@ const Sidebar = () => {
             >
                 <div className="bg-white dark:bg-black h-full">
                     <div className="flex justify-between items-center px-4 py-3">
-                        <NavLink to="/dashboard" className="main-logo flex items-center shrink-0 w-100 h-100">
+                        <NavLink to="/entrenador/" className="main-logo flex items-center shrink-0 w-100 h-100">
                             <img className="w-[200px] flex-none" src="/assets/images/logo/logo-horizontal.svg" alt="logo" />
                         </NavLink>
 
@@ -81,7 +88,7 @@ const Sidebar = () => {
                     <PerfectScrollbar className="h-[calc(100vh-80px)] relative">
                         <ul className="relative font-semibold space-y-0.5 p-4 py-0">
                             <li className="menu nav-item">
-                                <Link to="/dashboard" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
+                                <Link to="/entrenador/" className={`${location.pathname === '/entrenador/entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
                                     <div className="flex items-center">
                                         <IconMenuDashboard className="group-hover:!text-primary shrink-0" />
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Dashboard'}</span>
@@ -89,15 +96,24 @@ const Sidebar = () => {
                                 </Link>
                             </li>
                             <li className="menu nav-item">
-                                <Link to="/perfil" className={`${currentMenu === 'perfil' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('perfil')}>
+                                <Link to="/entrenador/perfil" className={`${location.pathname === '/entrenador/entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('perfil')}>
                                     <div className="flex items-center">
                                         <IconMenuUsers className="group-hover:!text-primary shrink-0" />
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Mis datos'}</span>
                                     </div>
                                 </Link>
                             </li>
+                            {/* <li className="menu nav-item">
+                                <Link to="/entrenador/entrenamientos" className={`${currentMenu === 'entrenador/entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('entrenamientos')}>
+                                    <div className="flex items-center">
+                                        <IconMenuDumbbell className="group-hover:!text-primary shrink-0" />
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Entrenamientos'}</span>
+                                    </div>
+                                </Link>
+                            </li> */}
                             <li className="menu nav-item">
-                                <Link to="/entrenamientos" className={`${currentMenu === 'entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('entrenamientos')}>
+                                <Link to="/entrenador/entrenamientos" className={`${location.pathname === '/entrenador/entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('entrenamientos')}
+                                >
                                     <div className="flex items-center">
                                         <IconMenuDumbbell className="group-hover:!text-primary shrink-0" />
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Entrenamientos'}</span>
@@ -105,15 +121,7 @@ const Sidebar = () => {
                                 </Link>
                             </li>
                             <li className="menu nav-item">
-                                <Link to="/eventos" className={`${currentMenu === 'eventos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('eventos')}>
-                                    <div className="flex items-center">
-                                        <IconMenuAward className="group-hover:!text-primary shrink-0" />
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Eventos'}</span>
-                                    </div>
-                                </Link>
-                            </li>
-                            <li className="menu nav-item">
-                                <Link to="/encuestas" className={`${currentMenu === 'encuestas' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('encuestas')}>
+                                <Link to="/entrenador/encuestas" className={`${location.pathname === '/entrenador/entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('encuestas')}>
                                     <div className="flex items-center">
                                         <IconMenuForms className="group-hover:!text-primary shrink-0" />
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Encuestas'}</span>
@@ -121,27 +129,27 @@ const Sidebar = () => {
                                 </Link>
                             </li>
                             <li className="menu nav-item">
-                                <Link to="/mensajes" className={`${currentMenu === 'mensajes' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('mensajes')}>
+                                <Link to="/entrenador/grupos" className={`${location.pathname === '/entrenador/entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('grupos')}>
+                                    <div className="flex items-center">
+                                        <IconMenuDatatables className="group-hover:!text-primary shrink-0" />
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Grupos'}</span>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="menu nav-item">
+                                <Link to="/entrenador/mensajes" className={`${location.pathname === '/entrenador/entrenamientos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('mensajes')}>
                                     <div className="flex items-center">
                                         <IconMenuMailbox className="group-hover:!text-primary shrink-0" />
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Mensajes'}</span>
                                     </div>
                                 </Link>
                             </li>
-                            <li className="menu nav-item">
-                                <Link to="/pagos" className={`${currentMenu === 'pagos' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('pagos')}>
-                                    <div className="flex items-center">
-                                        <IconMenuInvoice className="group-hover:!text-primary shrink-0" />
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">{'Mis pagos'}</span>
-                                    </div>
-                                </Link>
-                            </li>
                         </ul>
                         <div className='mt-auto flex justify-center absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full' id="VerAtleta">
-                            <Link to="/entrenador" className="menu nav-item">
+                            <Link to="/dashboard" className="menu nav-item">
                                 <div className="flex items-center">
-                                <button type="button" className="btn btn-info rounded-full">
-                                    Ver como Entrenador
+                                <button type="button" className="btn btn-warning rounded-full">
+                                    Ver como Atleta
                                     <IconEye className="w-5 h-5 ltr:ml-1.5 rtl:mr-1.5 shrink-0" />
                                 </button>
                                 </div>

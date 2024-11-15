@@ -31,7 +31,7 @@ const LoginBoxed = () => {
     const [flag, setFlag] = useState(themeConfig.locale);
 
     const submitForm = () => {
-        navigate('/dashboard');
+        navigate('/seleccionar');
     };
     let [Mensaje, setMensaje] = useState('');
     let [HayError, setHayError] = useState(false);

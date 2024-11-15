@@ -1,20 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { IRootState } from '../store';
+import { IRootState } from '../../store';
 import ReactApexChart from 'react-apexcharts';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-import Dropdown from '../components/Dropdown';
-import { setPageTitle } from '../store/themeConfigSlice';
-import IconHorizontalDots from '../components/Icon/IconHorizontalDots';
-import IconArrowLeft from '../components/Icon/IconArrowLeft';
-import IconHeart from '../components/Icon/IconHeart';
-import IconChecks2 from '../components/Icon/IconChecks2';
-import IconClock2 from '../components/Icon/IconClock2';
-import IconFile2 from '../components/Icon/IconFile2';
-import IconX2 from '../components/Icon/IconX2';
+import Dropdown from '../../components/Dropdown';
+import { setPageTitle } from '../../store/themeConfigSlice';
+import IconHorizontalDots from '../../components/Icon/IconHorizontalDots';
+import IconArrowLeft from '../../components/Icon/IconArrowLeft';
+import IconHeart from '../../components/Icon/IconHeart';
+import IconChecks2 from '../../components/Icon/IconChecks2';
+import IconClock2 from '../../components/Icon/IconClock2';
+import IconFile2 from '../../components/Icon/IconFile2';
+import IconX2 from '../../components/Icon/IconX2';
 import { useNavigate } from 'react-router-dom';
-import IconClock from '../components/Icon/IconClock';
+import IconClock from '../../components/Icon/IconClock';
 
 const Index = () => {
     const dispatch = useDispatch();
@@ -30,11 +30,11 @@ const Index = () => {
     const revenueChart: any = {
         series: [
             {
-                name: 'Ingresos',
+                name: 'Individual',
                 data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000, 15000, 17000, 14000, 17000],
             },
             {
-                name: 'Gastos',
+                name: 'Grupal',
                 data: [16500, 17500, 16200, 17300, 16000, 19500, 16000, 17000, 16000, 19000, 18000, 19000],
             },
         ],
@@ -67,7 +67,7 @@ const Index = () => {
                 left: -7,
                 top: 22,
             },
-            colors: isDark ? ['#2196F3', '#E7515A'] : ['#1B55E2', '#E7515A'],
+            colors: isDark ? ['#2196F3', '#00ab55'] : ['#1B55E2', '#00ab55'],
             markers: {
                 discrete: [
                     {
@@ -80,7 +80,7 @@ const Index = () => {
                     {
                         seriesIndex: 1,
                         dataPointIndex: 5,
-                        fillColor: '#E7515A',
+                        fillColor: '#00ab55',
                         strokeColor: 'transparent',
                         size: 7,
                     },
@@ -585,7 +585,44 @@ const Index = () => {
             </ul>
 
             <div className="pt-5">
-
+                <div className="panel h-full xl:col-span-2 mb-5">
+                    <div className="flex items-center justify-between dark:text-white-light mb-5">
+                        <h5 className="font-semibold text-lg">Progreso entrenamientos</h5>
+                        <div className="dropdown">
+                            <Dropdown
+                                offset={[0, 1]}
+                                placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
+                                button={<IconHorizontalDots className="text-black/70 dark:text-white/70 hover:!text-primary" />}
+                            >
+                                <ul>
+                                    <li>
+                                        <button type="button">Semanal</button>
+                                    </li>
+                                    <li>
+                                        <button type="button">Mensual</button>
+                                    </li>
+                                    <li>
+                                        <button type="button">Anual</button>
+                                    </li>
+                                </ul>
+                            </Dropdown>
+                        </div>
+                    </div>
+                    <p className="text-lg dark:text-white-light/90">
+                    Primera <span className="text-primary ml-2"> Temporada</span>
+                    </p>
+                    <div className="relative">
+                        <div className="bg-white dark:bg-black rounded-lg overflow-hidden">
+                            {loading ? (
+                                <div className="min-h-[325px] grid place-content-center bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] ">
+                                    <span className="animate-spin border-2 border-black dark:border-white !border-l-transparent  rounded-full w-5 h-5 inline-flex"></span>
+                                </div>
+                            ) : (
+                                <ReactApexChart series={revenueChart.series} options={revenueChart.options} type="area" height={325} />
+                            )}
+                        </div>
+                    </div>
+                </div>
                 <div className="panel h-full sm:col-span-2 lg:col-span-1 mb-5">
                     {/* statistics */}
                     <div className="flex justify-between dark:text-white-light mb-5">
@@ -617,8 +654,8 @@ const Index = () => {
                     <div className="grid sm:grid-cols-2 gap-8 text-sm text-[#515365] font-bold">
                         <div>
                             <div>
-                                <div>Calorias totales</div>
-                                <div className="text-[#f8538d] text-lg">23,964 K</div>
+                                <div>Asistencias</div>
+                                <div className="text-[#f8538d] text-lg">2 K</div>
                             </div>
 
                             <ReactApexChart series={totalVisit.series} options={totalVisit.options} type="line" height={58} className="overflow-hidden" />

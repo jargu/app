@@ -284,7 +284,7 @@ const Scrumboard = () => {
                     <div className="flex flex-col justify-center items-center gap-5 pb-2">
                         {projectList.map((project: any) => {
                             return (
-                                <div key={project.id} className="panel w-80 flex-none" data-group={project.id}>
+                                <div key={project.id} className="panel w-100 flex-none" data-group={project.id}>
                                     <div className="flex justify-between mb-5">
                                         <h4 className="text-base font-semibold">{project.title}</h4>
                                     </div>
