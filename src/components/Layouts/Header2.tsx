@@ -143,7 +143,7 @@ const Header = () => {
             <div className="shadow-sm">
                 <div className="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-black">
                     <div className="horizontal-logo flex lg:hidden justify-between items-center ltr:mr-2 rtl:ml-2">
-                        <Link to="/" className="main-logo flex items-center shrink-0">
+                        <Link to="/entrenador" className="main-logo flex items-center shrink-0">
                             <img className="w-10 ltr:-ml-1 rtl:-mr-1 inline" src="/assets/images/logo/K-color.svg" alt="logo" />
                             <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">KOBU</span>
                         </Link>
@@ -404,13 +404,13 @@ const Header = () => {
                                         </div>
                                     </li>
                                     <li>
-                                        <Link to="/perfil" className="dark:hover:text-white">
+                                        <Link to="/entrenador/perfil" className="dark:hover:text-white">
                                             <IconUser className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0" />
                                             Perfil
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/mensajes" className="dark:hover:text-white">
+                                        <Link to="/entrenador/mensajes" className="dark:hover:text-white">
                                             <IconMail className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0" />
                                             Mensajes
                                         </Link>

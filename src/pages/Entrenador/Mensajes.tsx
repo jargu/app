@@ -312,6 +312,7 @@ const Chat = () => {
             sendMessage();
         }
     };
+
     useEffect(() => {
         setIsShowChatMenu(true);
     }, []);
@@ -326,7 +327,7 @@ const Chat = () => {
                             </div>
                             <div className="mx-3">
                                 <p className="mb-1 font-semibold">Jonathan Cruz</p>
-                                <p className="text-xs text-white-dark">Developer</p>
+                                <p className="text-xs text-white-dark">Entrenador</p>
                             </div>
                         </div>
                         <div className="dropdown">
@@ -431,6 +432,9 @@ const Chat = () => {
                 <div className="panel p-0 flex-1">
                     {!isShowUserChat && (
                         <div className="flex items-center justify-center h-full relative p-4">
+                            <button type="button" onClick={() => setIsShowChatMenu(!isShowChatMenu)} className="xl:hidden absolute top-4 ltr:left-4 rtl:right-4 hover:text-primary">
+                                <IconMenu />
+                            </button>
                             <button type="button" onClick={() => setIsShowChatMenu(!isShowChatMenu)} className="xl:hidden absolute top-4 ltr:left-4 rtl:right-4 hover:text-primary">
                                 <IconMenu />
                             </button>

@@ -1,12 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 import BlankLayout from '../components/Layouts/BlankLayout';
 import DefaultLayout from '../components/Layouts/DefaultLayout';
+import EntrenadorLayout from '../components/Layouts/EntrenadorLayout';
 import { routes } from './routes';
 
 const finalRoutes = routes.map((route) => {
     return {
         ...route,
-        element: route.layout === 'blank' ? <BlankLayout>{route.element}</BlankLayout> : <DefaultLayout>{route.element}</DefaultLayout>,
+        element: route.layout === 'blank'
+            ? <BlankLayout>{route.element}</BlankLayout>
+            : route.layout === 'entrenador'
+                ? <EntrenadorLayout>{route.element}</EntrenadorLayout>
+                : <DefaultLayout>{route.element}</DefaultLayout>,
     };
 });
 

@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 const Index = lazy(() => import('../pages/Dashboard'));
+const SelectView = lazy(() => import('../pages/Seleccionar'));
 const Profile = lazy(() => import('../pages/Users/Profile'));
 const EditProfile = lazy(() => import('../pages/Users/AccountSetting'));
 const LoginBoxed = lazy(() => import('../pages/Authentication/LoginBoxed'));
@@ -48,13 +49,90 @@ const MensajesIndex = lazy(() => import('../pages/Mensajes/Index'));
 const PagosIndex = lazy(() => import('../pages/Pagos/Index'));
 const PagosTarjetas = lazy(() => import('../pages/Pagos/Tarjetas'));
 const PagosReintentarPago = lazy(() => import('../pages/Pagos/Pago'));
+const EntrenadorDashboard = lazy(() => import('../pages/Entrenador/Dashboard'));
+const EntrenadorPerfil = lazy(() => import('../pages/Entrenador/Profile'));
+const EntrenadorPerfilEditar = lazy(() => import('../pages/Entrenador/AccountSetting'));
+const EntrenadorEntranamientos = lazy(() => import('../pages/Entrenador/Entrenamientos'));
+const EntrenadorEntranamientosAgregar = lazy(() => import('../pages/Entrenador/EntrenamientosAgregar'));
+const EntrenadorEntranamientosEditar = lazy(() => import('../pages/Entrenador/EntrenamientosEditar'));
+const EntrenadorEncuestas = lazy(() => import('../pages/Entrenador/EntrenamientosEncuestas'));
+const EntrenadorEncuestasAgregar = lazy(() => import('../pages/Entrenador/EntrenamientosEncuestasAgregar'));
+const EntrenadorEncuestasEditar = lazy(() => import('../pages/Entrenador/EntrenamientosEncuestasEditar'));
+const EntrenadorGrupos = lazy(() => import('../pages/Entrenador/Grupos/Index'));
+const EntrenadorGruposAdd = lazy(() => import('../pages/Entrenador/Grupos/Add'));
+const EntrenadorGruposEdit = lazy(() => import('../pages/Entrenador/Grupos/Edit'));
+const EntrenadorMensajes = lazy(() => import('../pages/Entrenador/Mensajes'));
 
 const routes = [
-    // dashboard
     {
         path: '/',
         element: <LoginBoxed />,
         layout: 'blank',
+    },
+    {
+        path: '/entrenador/',
+        element: <EntrenadorDashboard />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/perfil',
+        element: <EntrenadorPerfil />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/perfil/editar',
+        element: <EntrenadorPerfilEditar />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/entrenamientos',
+        element: <EntrenadorEntranamientos />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/entrenamientos/agregar',
+        element: <EntrenadorEntranamientosAgregar />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/entrenamientos/editar',
+        element: <EntrenadorEntranamientosEditar />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/encuestas',
+        element: <EntrenadorEncuestas />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/encuestas/agregar',
+        element: <EntrenadorEncuestasAgregar />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/encuestas/editar',
+        element: <EntrenadorEncuestasEditar />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/grupos',
+        element: <EntrenadorGrupos />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/grupos/agregar',
+        element: <EntrenadorGruposAdd />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/grupos/editar',
+        element: <EntrenadorGruposEdit />,
+        layout: 'entrenador',
+    },
+    {
+        path: '/entrenador/mensajes',
+        element: <EntrenadorMensajes />,
+        layout: 'entrenador',
     },
     {
         path: '/auth/registro',
@@ -72,6 +150,11 @@ const routes = [
     {
         path: '/dashboard',
         element: <Index />,
+        layout: 'default',
+    },
+    {
+        path: '/seleccionar',
+        element: <SelectView />,
         layout: 'default',
     },
     {
